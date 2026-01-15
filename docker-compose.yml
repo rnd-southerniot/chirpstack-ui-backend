@@ -1,0 +1,12 @@
+version: "3.8"
+
+services:
+  backend:
+    build: .
+    ports:
+      - "3001:3001"
+    environment:
+      - CHIRPSTACK_GRPC_ADDR=${CHIRPSTACK_GRPC_ADDR}
+      - CHIRPSTACK_TOKEN=${CHIRPSTACK_TOKEN}
+    volumes:
+      - .:/app
