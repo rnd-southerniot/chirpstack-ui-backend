@@ -1,3 +1,0 @@
-[submodule "smoke-tests"]
-	path = smoke-tests
-	url = git@github.com:rnd-southerniot/lorawan-smoke-validation.git
