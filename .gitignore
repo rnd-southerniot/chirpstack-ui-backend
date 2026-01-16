@@ -11,3 +11,10 @@ gha_submodule_key*
 id_rsa*
 id_ed25519*
 *_submodule_key*
+
+# Secrets / keys
+*.pem
+*.key
+id_rsa*
+id_ed25519*
+*_submodule_key*
