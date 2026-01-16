@@ -1,0 +1,32 @@
+name: CI Smoke (checkout + submodule)
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+
+permissions:
+  contents: read
+
+jobs:
+  checkout-and-verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout with submodules via deploy key
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          ssh-key: ${{ secrets.SUBMODULE_DEPLOY_KEY }}
+
+      - name: Verify submodule content
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "== git submodule status =="
+          git submodule status --recursive
+
+          echo "== list smoke-tests =="
+          ls -la smoke-tests || true
+
+          echo "== show top-level scripts (if present) =="
+          find smoke-tests -maxdepth 2 -type f -name "*.sh" -print || true
