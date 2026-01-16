@@ -4,3 +4,10 @@ gha_submodule_key*
 
 # macOS
 .DS_Store
+
+# Keys / secrets
+*.pem
+*.key
+id_rsa*
+id_ed25519*
+*_submodule_key*
